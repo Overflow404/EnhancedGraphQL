@@ -7,7 +7,7 @@ Filtering language to improve GraphQL filtering capabilities
 `git clone https://github.com/Overflow404/EnhancedGraphQL`
 
 ## Adding as a Maven dependency:
-```
+```maven
 <repository>
     <id>jitpack.io</id>
     <url>https://jitpack.io</url>
