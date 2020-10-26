@@ -248,7 +248,7 @@ input BooleanExpression {
 
 Launching our project we have a custom filtering language that automatically translates our filtering language to JPA specifications!
 
-Here is a demo with a query to search a Person with specific filters:
+Here is an example with a query to search a Person with specific filters (also on foreign linked entities):
 
 ```graphql
 query SearchPerson {
