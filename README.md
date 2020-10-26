@@ -74,7 +74,7 @@ public class Person implements Serializable {
 @Entity
 @Table(name = "Role")
 @Data
-public class Role {
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
