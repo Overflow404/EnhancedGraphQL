@@ -219,7 +219,7 @@ input RoleFilter {
 
     and: [RoleFilter!]
     or: [RoleFilter!]
-    not: PersonFilter
+    not: RoleFilter
 }
 
 # Define String expression
