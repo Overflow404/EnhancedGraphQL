@@ -1,4 +1,4 @@
-# Enhanced GraphQL
+# Enhanced GraphQL - Currently work in progress
 
 Filtering language to improve GraphQL filtering capabilities
 
