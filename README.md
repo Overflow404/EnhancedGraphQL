@@ -6,6 +6,19 @@ Filtering language to improve GraphQL filtering capabilities
 
 `git clone https://github.com/Overflow404/EnhancedGraphQL`
 
+## Adding as a Maven dependency:
+```
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
+
+<dependency>
+    <groupId>com.github.Overflow404</groupId>
+    <artifactId>EnhancedGraphQL</artifactId>
+    <version>master-82e5f18438-1</version>
+</dependency>
+```
 ## Example
 Let's start creating a Spring Boot project:
 
