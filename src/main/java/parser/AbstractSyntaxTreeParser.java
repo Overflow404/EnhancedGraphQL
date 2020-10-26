@@ -74,18 +74,18 @@ public class AbstractSyntaxTreeParser<T> implements Parser<T> {
     }
 
 
-    private Predicate buildUnaryPredicate(Object map, CriteriaBuilder criteriaBuilder, Path<?> root) {
+    private Predicate buildUnaryPredicate(Object map, CriteriaBuilder criteriaBuilder, Path<?> path) {
         return unaryPredicateFactory.newPredicate(
                 UnaryPredicateContext
                         .builder()
                         .operand(keyOfFirstEntry(map))
-                        .predicate(buildAbstractSyntaxTree(valueOfFirstEntry(map), criteriaBuilder, root))
+                        .predicate(buildAbstractSyntaxTree(valueOfFirstEntry(map), criteriaBuilder, path))
                         .criteriaBuilder(criteriaBuilder)
                         .build()
         );
     }
 
-    private Predicate buildBinaryPredicate(Object map, CriteriaBuilder criteriaBuilder, Path<?> root) {
+    private Predicate buildBinaryPredicate(Object map, CriteriaBuilder criteriaBuilder, Path<?> path) {
 
         return binaryTypeFactory.newPredicate(
                 BinaryPredicateContext
@@ -94,12 +94,12 @@ public class AbstractSyntaxTreeParser<T> implements Parser<T> {
                         .leftOperand(keyOfFirstEntry(map))
                         .rightOperand(terminalExpression(map).toString())
                         .criteriaBuilder(criteriaBuilder)
-                        .path(root)
+                        .path(path)
                         .build()
         );
     }
 
-    private Predicate buildBinaryPredicateWithList(Object map, CriteriaBuilder criteriaBuilder, Path<?> root) {
+    private Predicate buildBinaryPredicateWithList(Object map, CriteriaBuilder criteriaBuilder, Path<?> path) {
         return binaryTypeFactory.newPredicate(
                 BinaryPredicateContext
                         .builder()
@@ -107,12 +107,12 @@ public class AbstractSyntaxTreeParser<T> implements Parser<T> {
                         .leftOperand(keyOfFirstEntry(map))
                         .rightOperand(terminalExpression(map))
                         .criteriaBuilder(criteriaBuilder)
-                        .path(root)
+                        .path(path)
                         .build()
         );
     }
 
-    private Predicate buildCompoundPredicate(Object map, CriteriaBuilder criteriaBuilder, Path<?> root) {
+    private Predicate buildCompoundPredicate(Object map, CriteriaBuilder criteriaBuilder, Path<?> path) {
         return compoundPredicateFactory
                 .newPredicate(
                         CompoundPredicateContext
@@ -120,7 +120,7 @@ public class AbstractSyntaxTreeParser<T> implements Parser<T> {
                                 .operand(keyOfFirstEntry(map))
                                 .predicates(toList(valueOfFirstEntry(map))
                                         .stream()
-                                        .map(e -> buildAbstractSyntaxTree(e, criteriaBuilder, root))
+                                        .map(e -> buildAbstractSyntaxTree(e, criteriaBuilder, path))
                                         .collect(Collectors.toList()))
                                 .criteriaBuilder(criteriaBuilder)
                                 .build()
