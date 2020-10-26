@@ -9,7 +9,7 @@ Filtering language to improve GraphQL filtering capabilities
 ## Demo
 Let's start creating a Spring Boot project:
 
-```
+```java
 @SpringBootApplication
 @EnableJpaRepositories
 public class GraphqlFilterDemoApplication {
@@ -22,7 +22,7 @@ public class GraphqlFilterDemoApplication {
 ```
 
 Let's add a new GraphQL Provider with a well-defined runtime wiring for two data fetchers:
-```
+```java
 public RuntimeWiring buildWiring() {
     return RuntimeWiring.newRuntimeWiring()
             .type(newTypeWiring("Query")
@@ -33,7 +33,7 @@ public RuntimeWiring buildWiring() {
 ```
 
 Let's introduce the two entity:
-```
+```java
 @Entity
 @Table(name = "Person")
 @Data
@@ -70,7 +70,7 @@ public class Person implements Serializable {
 
 ```
 
-```
+```java
 @Entity
 @Table(name = "Role")
 @Data
@@ -105,20 +105,20 @@ public class Role implements Serializable {
 }
 ```
 And the repositories:
-```
+```java
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Integer>, JpaSpecificationExecutor<Person> {
 }
 ```
 
-```
+```java
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer>, JpaSpecificationExecutor<Role> {
 }
 ```
 
 And now, the core part, let's write the data fetcher!
-```
+```java
 @Component
 public class PersonDataFetcher {
 
@@ -152,7 +152,7 @@ public class PersonDataFetcher {
 ```
 
 GraphQL schema used:
-```
+```graphql
 type Query {
     searchPerson(personFilter: PersonFilter, roleFilter: RoleFilter): [Person]
     searchRole(roleFilter: RoleFilter): [Role]
@@ -250,7 +250,7 @@ Launching our project we have a custom filtering language that automatically tra
 
 Here is a demo with a query to search a Person with specific filters:
 
-```
+```graphql
 query SearchPerson {
   searchPerson(
     personFilter: {
@@ -284,7 +284,7 @@ query SearchPerson {
 ```
 
 The response:
-```
+```json
 {
   "data": {
     "searchPerson": [
