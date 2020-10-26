@@ -6,7 +6,7 @@ Filtering language to improve GraphQL filtering capabilities
 
 `git clone https://github.com/Overflow404/EnhancedGraphQL`
 
-## Demo
+## Example
 Let's start creating a Spring Boot project:
 
 ```java
