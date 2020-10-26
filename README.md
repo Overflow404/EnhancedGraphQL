@@ -1,11 +1,26 @@
-# Enhanced GraphQL
+# Enhanced GraphQL - Currently work in progress
 
 Filtering language to improve GraphQL filtering capabilities
 
 ## Getting Started
 
-`git clone https://github.com/Overflow404/EnhancedGraphQL`
+```bash
+git clone https://github.com/Overflow404/EnhancedGraphQL
+```
 
+## Adding as a Maven dependency:
+```maven
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
+
+<dependency>
+    <groupId>com.github.Overflow404</groupId>
+    <artifactId>EnhancedGraphQL</artifactId>
+    <version>master-82e5f18438-1</version>
+</dependency>
+```
 ## Example
 Let's start creating a Spring Boot project:
 
@@ -248,7 +263,7 @@ input BooleanExpression {
 
 Launching our project we have a custom filtering language that automatically translates our filtering language to JPA specifications!
 
-Here is a demo with a query to search a Person with specific filters:
+Here is an example with a query to search a Person with specific filters (also on foreign linked entities):
 
 ```graphql
 query SearchPerson {
