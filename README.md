@@ -4,7 +4,9 @@ Filtering language to improve GraphQL filtering capabilities
 
 ## Getting Started
 
-`git clone https://github.com/Overflow404/EnhancedGraphQL`
+```bash
+git clone https://github.com/Overflow404/EnhancedGraphQL
+```
 
 ## Adding as a Maven dependency:
 ```maven
