@@ -275,7 +275,7 @@ query SearchPerson {
     age
     registrationDate
     enabled
-		role {
+    role {
       name
     }
   }
