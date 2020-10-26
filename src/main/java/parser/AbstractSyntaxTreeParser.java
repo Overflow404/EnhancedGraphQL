@@ -40,14 +40,14 @@ public class AbstractSyntaxTreeParser<T> implements Parser<T> {
     }
 
     @Override
-    public ParserResult<T> parse(Map<String, Object> expression) {
+    public ParseResult<T> parse(Map<String, Object> expression) {
         if (voidExpression(expression)) {
-            return ParserResult
+            return ParseResult
                     .<T>builder()
                     .specification((path, criteriaQuery, criteriaBuilder) -> criteriaBuilder.and())
                     .build();
         }
-        return new ParserResult<>(
+        return new ParseResult<>(
                 (path, criteriaQuery, criteriaBuilder)
                         -> buildAbstractSyntaxTree(expression, criteriaBuilder, path)
         );
