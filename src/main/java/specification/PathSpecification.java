@@ -30,6 +30,10 @@ public interface PathSpecification<T> {
         return (root, query, cb) -> toPredicate(root.join(listAttribute), query, cb);
     }
 
+    default <S> Specification<S> atPath(final String attribute) {
+        return (root, query, cb) -> toPredicate(root.join(attribute), query, cb);
+    }
+
     @Nullable
     Predicate toPredicate(Path<T> path, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder);
 }
