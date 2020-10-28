@@ -337,11 +337,11 @@ The response:
 ```
 
 # TODO
-* **Test** 
-* **Logging** 
-* **Paging** 
-* **Sorting** 
-* **Limits** 
+* *Test*
+* *Logging* 
+* *Paging* 
+* *Sorting* 
+* *Limits* 
 
 ## Authors
 
